@@ -1,0 +1,12 @@
+<main>
+  <div class="logo">
+    {% if logo %}<img class="logo-i" src="{{ logo }}" alt="Logo"/>{% endif %}
+    <img class="icon" width="300px" height="300px" src= "{{ base_path ~ vtcore_path }}/img/503.svg" alt="Maintenance">
+  </div>
+  <div class="content">
+    <div class="code">503</div>
+    <h1>{{ 'Maintenance'|t }}</h1>
+    {{ page.content }}
+    <img class="shadow" src= "{{ base_path ~ vtcore_path }}/img/shadow.png" alt="Shadow" />
+  </div>
+</main>

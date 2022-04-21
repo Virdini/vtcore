@@ -1,0 +1,41 @@
+.node-form [type="file"] {
+  width: 100%;
+  max-width: 20em;
+}
+.vbase-field-widget-grid > .fieldset-wrapper {
+  display: grid;
+  grid-gap: 20px 20px;
+  padding-bottom: 0.75em;
+  width: 100%;
+}
+.vbase-field-widget-grid .form-item {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.vbase-field-widget-grid .form-number,
+.vbase-field-widget-grid .form-text {
+  width: 100%;
+}
+@media screen and (min-width: 480px) {
+  .vbase-field-widget-grid > .fieldset-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+  .vbase-field-widget-grid .js-form-type-checkbox {
+    grid-row: 1;
+    grid-column: 2;
+  }
+}
+@media screen and (min-width: 640px) {
+  .vbase-field-widget-grid > .fieldset-wrapper {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .vbase-field-widget-grid .js-form-type-checkbox {
+    grid-row: auto;
+    grid-column: auto;
+  }
+}
+@media screen and (min-width: 760px) {
+  .vbase-field-widget-grid > .fieldset-wrapper {
+    grid-template-columns: 200px 100px 100px auto;
+  }
+}

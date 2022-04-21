@@ -1,0 +1,32 @@
+{{ attach_library('vtcore/messages') }}
+
+<div class="messages-con" data-drupal-messages>
+  {% for type, messages in message_list %}
+    {%
+      set classes = [
+      'messages',
+      'messages--' ~ type,
+    ]
+    %}
+    <div{{ attributes.addClass(classes).setAttribute('data-drupal-selector', 'messages') }}>
+      <div class="messages-icon">
+        {% if type == 'error' %}
+          {% include "@vtcore/../img/error.svg" %}
+        {% elseif type == 'warning' %}
+          {% include "@vtcore/../img/warning.svg" %}
+        {% elseif type == 'status' %}
+          {% include "@vtcore/../img/status.svg" %}
+        {% else %}
+          {% include "@vtcore/../img/info.svg" %}
+        {% endif %}
+      </div>
+      <div class="messages-content">
+        {% for message in messages %}
+          <div>{{ message }}</div>
+        {% endfor %}
+      </div>
+    </div>
+    {# Remove type specific classes. #}
+    {% set attributes = attributes.removeClass(classes) %}
+  {% endfor %}
+</div>

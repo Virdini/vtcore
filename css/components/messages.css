@@ -1,0 +1,53 @@
+.messages {
+  color: #fff;
+  background-color: rgba(13, 18, 20, 1);
+  margin-bottom: 1em;
+  padding: 1em;
+}
+.messages:last-child {
+  margin-bottom: 0;
+}
+.messages a {
+  color: inherit;
+}
+.messages-icon {
+  height: 32px;
+  width: 32px;
+}
+.messages--error .messages-icon svg {
+  fill: rgba(227, 63, 30, 1);
+}
+.js-form-managed-file .messages--error {
+  border-left: solid 6px rgba(227, 63, 30, 1);
+}
+.messages--warning .messages-icon svg {
+  fill: rgba(253, 202, 64, 1);
+}
+.tabledrag-changed-warning.messages--warning,
+.js-form-managed-file .messages--warning {
+  border-left: solid 6px rgba(253, 202, 64, 1);
+}
+.messages--status .messages-icon svg {
+  fill: rgba(63, 162, 28, 1);
+}
+.js-form-managed-file .messages--status {
+  border-left: solid 6px rgba(63, 162, 28, 1);
+}
+.messages--info .messages-icon svg {
+  fill: rgba(13, 119, 181, 1);
+}
+.js-form-managed-file .messages--info {
+  border-left: solid 6px rgba(13, 119, 181, 1);
+}
+
+.messages-con .messages {
+  display: grid;
+  grid-template-columns: 32px auto 32px;
+  grid-gap: 1em 1em;
+}
+.messages-con .messages-content {
+  align-self: center;
+}
+.messages-con .messages-content > div {
+  padding: 0.25em 0;
+}

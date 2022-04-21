@@ -1,0 +1,33 @@
+{% if breadcrumb %}
+
+  {{ attach_library('vtcore/breadcrumb') }}
+
+  {% if breadcrumb|length > 1 %}
+    <ol itemtype="http://schema.org/BreadcrumbList" itemscope{{ attributes.addClass('crumb')|without('itemtype', 'itemscope') }}>
+      {{ breadcrumb_meta }}
+      {% for key, item in breadcrumb %}
+        <li itemprop="itemListElement" itemtype="http://schema.org/ListItem" itemscope>
+          {% if item.url %}
+            <a itemprop="item" href="{{ item.url }}">
+              <span itemprop="name">{{ item.text }}</span>
+            </a>
+          {% else %}
+            <span itemprop="name">{{ item.text }}</span>
+          {% endif %}
+          <meta itemprop="position" content="{{ key + 1 }}">
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <ol{{ attributes.addClass('crumb')|without('itemprop') }}>
+      {% for key, item in breadcrumb %}
+        {% if item.url %}
+          <li><a href="{{ item.url }}">{{ item.text }}</a></li>
+        {% else %}
+          <li>{{ item.text }}</li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  {% endif %}
+
+{% endif %}

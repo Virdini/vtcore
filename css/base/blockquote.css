@@ -1,0 +1,25 @@
+blockquote {
+  font-family: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
+  font-size: 1.5em;
+  line-height: 1.1;
+  padding: 0.5em 1.2em 0.3em;
+  margin: 0;
+  position: relative;
+}
+blockquote::after,
+blockquote::before {
+  font-size: 2em;
+  position: absolute;
+  line-height: 1;
+  content: "“";
+  color: rgba(13, 119, 181, 1);
+}
+blockquote::before {
+  left: 0;
+  top: 5px;
+}
+blockquote::after {
+  transform: rotate(180deg);
+  right: 0;
+  bottom: 0;
+}

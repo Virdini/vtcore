@@ -1,0 +1,21 @@
+fieldset {
+  display: block;
+  margin: 0.5em 0;
+  border-radius: 3px;
+  border: 2px solid rgba(13, 119, 181, 1);
+  padding: 0 1rem 1em;
+}
+fieldset.form-item {
+  padding-top: 0;
+}
+fieldset > legend {
+  padding: 0.5em 0.75em;
+  margin: 0 0 1em -1rem;
+  background-color: rgba(13, 119, 181, 1);
+  color: #fff;
+  font-size: inherit;
+  display: block;
+  width: calc(100% + 2rem);
+  max-width: none;
+  float: left;
+}

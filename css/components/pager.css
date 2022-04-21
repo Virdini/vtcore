@@ -1,0 +1,50 @@
+.pgr {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin: 0;
+  padding: 1em 0;
+  list-style: none;
+  font-weight: bold;
+  justify-content: center;
+}
+.pgr > li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3em;
+  height: 3em;
+  cursor: default;
+  color: inherit;
+  background-color: #fff
+}
+.pgr > li[data-t="a"] {
+  color: #fff;
+  background-color: rgba(13, 119, 181, 1);
+}
+.pgr > li > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+.pgr > li > a:hover {
+  color: rgba(13, 119, 181, 1);
+  background-color: rgba(13, 119, 181, 0.1);
+}
+.pgr > li > a:focus {
+  color: rgba(13, 119, 181, 1);
+  outline: 2px solid rgba(13, 119, 181, 1);
+  outline-offset: -2px;
+}
+.pgr > li svg {
+  display: block;
+  fill: currentColor;
+}
+.pgr > li[data-t="n"] svg,
+.pgr > li[data-t="l"] svg {
+  transform: rotate(180deg);
+}

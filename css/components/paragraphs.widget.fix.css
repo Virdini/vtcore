@@ -1,0 +1,25 @@
+.js .field--widget-paragraphs .field-multiple-drag {
+  width: 40px;
+  box-sizing: content-box;
+}
+.js .field--widget-paragraphs td {
+  padding: 0.5em;
+}
+.js .field--widget-paragraphs th .paragraphs-actions {
+  margin-right: 0;
+}
+.paragraphs-dropdown-action.button:hover,
+.paragraphs-dropdown-action.button:focus,
+.paragraphs-dropdown-action.button:active {
+  border: 0;
+}
+.js .field--widget-paragraphs .draggable .tabledrag-handle:hover .handle {
+  -webkit-transform: none;
+  transform: none;
+}
+.paragraphs-tabs-wrapper > .form-item > table > thead .label {
+  display: inline-block;
+}
+.paragraph-top .paragraph-type-label {
+  font-weight: bold;
+}

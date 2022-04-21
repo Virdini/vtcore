@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+  <head{{ head_attributes }}>
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <style>
+      html {
+        height: 100%;
+      }
+      body {
+        font: normal 14px/1.2 Tahoma, Verdana, Segoe, sans-serif;
+        color: #000;
+        display: grid;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        align-content: center;
+      }
+      h1 {
+        font-weight: normal;
+        font-size: 18px;
+        text-align: center;
+        margin: 0;
+        padding: 1em 0;
+      }
+      .code {
+        font-weight: bold;
+        font-size: 150px;
+        text-align: center;
+        color: #990000;
+        line-height: 1;
+      }
+      .logo,
+      .content {
+        width: 300px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .content {
+        padding-bottom: 80px;
+      }
+      .logo {
+        height: 130px;
+        box-sizing: border-box;
+        padding-left: 20px;
+      }
+      .logo-i {
+        max-width: 120px;
+        max-height: 120px;
+        display: block;
+      }
+      .icon {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        z-index: -1;
+      }
+      main {
+        width: 100%;
+        overflow: hidden;
+        padding-top: 20px;
+      }
+      .shadow {
+        position: absolute;
+        bottom: 0;
+        left: -50px;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body class="maintenance-page">{{ page }}</body>
+</html>

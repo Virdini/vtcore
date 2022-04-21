@@ -1,0 +1,16 @@
+.crumb {
+  margin: 0;
+  padding: 0.5em 0;
+  list-style-type: none;
+}
+.crumb li {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+.crumb li::after {
+  content: ' >  ';
+}
+.crumb li:last-child::after {
+  content: none;
+}

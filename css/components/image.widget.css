@@ -1,0 +1,38 @@
+.image-widget .imce-filefield-widget {
+  padding: 0.25em 0 0.5em;
+}
+.image-widget-fields .description {
+  display: none;
+}
+.image-widget-fields .form-text {
+  width: 100%;
+}
+@media screen and (min-width: 480px) {
+  .image-widget {
+    display: grid;
+    grid-gap: 1em 1em;
+  }
+  .image-widget.with-preview {
+    grid-template-columns: 100px auto;
+  }
+  .image-widget-fields > .form-item {
+    padding-top: 0;
+  }
+  .image-widget-fields > .form-item:last-child {
+    padding-bottom: 0;
+  }
+  .image-widget.with-preview .image-widget-data {
+    grid-column: 1/-1;
+  }
+}
+@media screen and (min-width: 640px) {
+  .image-widget-fields {
+    max-width: 940px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em 1em;
+  }
+  .image-widget-fields > .form-item {
+    padding-bottom: 0;
+  }
+}

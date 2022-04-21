@@ -1,0 +1,11 @@
+{%
+  set classes = [
+    data.preview ? 'with-preview',
+  ]
+%}
+{{ attach_library('vtcore/image.widget') }}
+<div{{ attributes.addClass(classes).removeClass('clearfix') }}>
+  {{ data.preview }}
+  {% if data.alt|render or data.title|render %}<div class="image-widget-fields">{{ data.title }}{{ data.alt }}</div>{% endif %}
+  <div class="image-widget-data">{{ data.remove_button }} {{ data|without('preview', 'alt', 'title', 'remove_button') }}</div>
+</div>

@@ -1,0 +1,63 @@
+global-styling:
+  css:
+    base:
+      css/base/elements.css: {}
+      css/base/table.css: {}
+      css/base/blockquote.css: {}
+      css/base/details.css: {}
+      css/base/fieldset.css: {}
+
+ajax.progress:
+  css:
+    component:
+      css/components/ajax-progress.module.css: {}
+
+messages:
+  css:
+    component:
+      css/components/messages.css: {}
+
+pager:
+  css:
+    component:
+      css/components/pager.css: {}
+
+breadcrumb:
+  css:
+    component:
+      css/components/breadcrumb.css: {}
+
+tabs:
+  css:
+    component:
+      css/components/tabs.css: {}
+  js:
+    js/tabs.js: {}
+
+form:
+  css:
+    component:
+      css/components/form.css: {}
+  dependencies:
+    - vtcore/button
+    - vtcore/messages
+
+form.node:
+  css:
+    component:
+      css/components/form.node.css: {}
+
+button:
+  css:
+    component:
+      css/components/button.css: {}
+
+image.widget:
+  css:
+    component:
+      css/components/image.widget.css: {}
+
+paragraphs.widget.fix:
+  css:
+    component:
+      css/components/paragraphs.widget.fix.css: {}

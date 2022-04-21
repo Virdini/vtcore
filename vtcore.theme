@@ -1,0 +1,120 @@
+<?php
+
+/**
+ * Implements hook_preprocess_HOOK() for html templates.
+ */
+function vtcore_preprocess_html(&$variables) {
+  $route = \Drupal::routeMatch();
+  switch ($route->getRouteName()) {
+    case 'vamp.entity.taxonomy_term.canonical':
+    case 'entity.taxonomy_term.canonical':
+      $variables['attributes']['class'][] = 'voc-'. $route->getParameter('taxonomy_term')->bundle();
+      break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_maintenance_page().
+ */
+function vtcore_preprocess_maintenance_page(&$variables) {
+  $variables['vtcore_path'] = \Drupal::service('theme_handler')->getTheme('vtcore')->getPath();
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node templates.
+ */
+function vtcore_preprocess_node(&$variables) {
+  unset($variables['attributes']['role']);
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block templates.
+ */
+function vtcore_preprocess_block(&$variables) {
+  switch ($variables['base_plugin_id']) {
+    case 'system_branding_block':
+      $variables['front'] = \Drupal::service('path.matcher')->isFrontPage() ? FALSE : '<front>';
+      $variables['#cache']['contexts'][] = 'url.path.is_front';
+      break;
+  }
+}
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function vtcore_element_info_alter(&$type) {
+  if (isset($type['page']['#theme_wrappers']['off_canvas_page_wrapper'])) {
+    unset($type['page']['#theme_wrappers']['off_canvas_page_wrapper']);
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for html templates.
+ */
+function vtcore_theme_suggestions_html_alter(array &$suggestions, array $variables) {
+  if (isset($variables['html']['page']['#theme']) && $variables['html']['page']['#theme'] == 'maintenance_page') {
+    $suggestions[] = 'html___maintenance_page';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for page templates.
+ */
+function vtcore_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  switch (\Drupal::routeMatch()->getRouteName()) {
+    case 'vamp.entity.node.canonical':
+    case 'entity.node.canonical':
+      $suggestions[] = $variables['theme_hook_original'] .'__node__canonical';
+      break;
+
+    case 'vamp.entity.user.canonical':
+    case 'entity.user.canonical':
+      $suggestions[] = $variables['theme_hook_original'] .'__user__canonical';
+      break;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for responsive-image templates.
+ */
+function vtcore_theme_suggestions_responsive_image_alter(array &$suggestions, array $variables) {
+  if (isset($variables['responsive_image_style_id'])) {
+    $suggestions[] = $variables['theme_hook_original'] .'__'. $variables['responsive_image_style_id'];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for form templates.
+ */
+function vtcore_preprocess_form(&$variables) {
+  $variables['#attached']['library'][] = 'vtcore/form';
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for \Drupal\node\NodeForm.
+ */
+function vtcore_form_node_form_alter(&$form) {
+  if (isset($form['meta']['changed'])) {
+    $form['meta']['changed']['#wrapper_attributes']['class'][] = 'container-inline';
+  }
+  if (isset($form['meta']['author'])) {
+    $form['meta']['author']['#wrapper_attributes']['class'][] = 'container-inline';
+  }
+  $form['#attached']['library'][] = 'vtcore/form.node';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for input--submit templates.
+ */
+function vtcore_preprocess_input__submit(&$variables) {
+  // Browser translate function breaks Drupal form submit.
+  $variables['attributes']['class'][] = 'notranslate';
+  $variables['attributes']['translate'] = 'no';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for datetime-form templates.
+ */
+function vtcore_preprocess_datetime_form(&$variables) {
+  $variables['attributes']['class'][] = 'datetime-inline';
+}

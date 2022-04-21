@@ -1,0 +1,60 @@
+.vertical-tabs__menu {
+  position: relative;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-width: 2px 2px 0 2px;
+  border-style: solid;
+}
+.vertical-tabs__pane {
+  margin: 0;
+  padding: 1em;
+  border-radius: 0;
+}
+.vertical-tabs__menu,
+.vertical-tabs__pane {
+  border-color: rgba(13, 119, 181, 0.1);
+}
+.vertical-tabs__pane > summary {
+  display: none;
+}
+.vertical-tabs__menu-item a {
+  display: block;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  background-color: rgba(13, 119, 181, 0.1);
+}
+.vertical-tabs__menu-item a:focus,
+.vertical-tabs__menu-item a:hover,
+.vertical-tabs__menu-item a:active {
+  background-color: rgba(13, 119, 181, 0.3);
+  text-decoration: none;
+}
+.vertical-tabs__menu-item.is-selected {
+  background-color: #fff;
+}
+.vertical-tabs__menu-item.is-selected a {
+  background-color: transparent;
+}
+.vertical-tabs__menu-item-summary {
+  display: block;
+  font-size: 0.67em;
+  line-height: 1.1;
+}
+@media (min-width: 1000px) {
+  .vertical-tabs {
+    display: flex;
+  }
+  .vertical-tabs__menu {
+    width: 15rem;
+    border-width: 2px 0 2px 2px;
+  }
+  .vertical-tabs__panes {
+    width: calc(100% - 15rem);
+    margin-top: 0;
+  }
+  .vertical-tabs__pane {
+    min-height: 100%;
+  }
+}

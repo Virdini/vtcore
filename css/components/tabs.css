@@ -1,0 +1,128 @@
+.tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 0 1em;
+  padding: 1em 0 0;
+  list-style: none;
+  font-size: 0.875em;
+}
+.tabs > li > a {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  height: 3em;
+  padding: 0.5em 1em;
+  transition: background-color 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+.tabs > li > a:focus {
+  outline: 2px solid rgba(13, 119, 181, 1);
+  outline-offset: -2px;
+}
+.tabs .trigger:hover,
+.tabs > li > a:hover {
+  background-color: rgba(13, 119, 181, 0.3);
+  color: rgba(13, 119, 181, 1);
+}
+.tabs > li.is-active > a {
+  position: relative;
+  font-weight: bold;
+}
+.tabs > li.is-active > a:hover {
+  color: inherit;
+}
+.tabs > li.is-active > a::after {
+  background-color: rgba(13, 119, 181, 1);
+  position: absolute;
+  content: "";
+  left: -1px;
+  bottom: 0;
+}
+@media screen and (max-width: 999px) {
+  .tabs {
+    border-bottom: 1px solid rgba(13, 119, 181, 0.3);
+  }
+  .tabs > li > a {
+    background-color: rgba(13, 119, 181, 0.1);
+    border: 1px solid rgba(13, 119, 181, 0.3);
+    border-bottom: none;
+  }
+  .tabs > li {
+    display: none;
+  }
+  .tabs.expanded > li,
+  .tabs > li.is-active {
+    display: flex;
+  }
+  .tabs > li.is-active > a::after {
+    width: 6px;
+    top: -1px;
+  }
+  .tabs .trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4em;
+    margin-top: 0;
+    margin-bottom: 0;
+    cursor: pointer;
+    background-color: rgba(13, 119, 181, 0.1);
+    border: 1px solid rgba(13, 119, 181, 0.3);
+    border-left: none;
+    border-bottom: none;
+    transition: background-color 0.2s;
+  }
+  .tabs .trigger-icon {
+    position: relative;
+    display: block;
+    width: 1.5em;
+    height: 0.75em;
+    margin-top: -2px;
+  }
+  .tabs .trigger-icon > span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    transition: transform 0.2s, opacity 0.2s, top 0.2s;
+    border-top: 2px solid rgba(13, 119, 181, 1);
+  }
+  .tabs .trigger-icon > span:nth-child(1) {
+    top: 0;
+  }
+  .tabs .trigger-icon > span:nth-child(2) {
+    top: calc(50% + 1px);
+  }
+  .tabs .trigger-icon > span:nth-child(3) {
+    top: calc(100% + 2px);
+  }
+  .tabs .trigger.expanded .trigger-icon > span:nth-child(1) {
+    top: calc(50% + 1px);
+    transform: rotate(45deg);
+  }
+  .tabs .trigger.expanded .trigger-icon > span:nth-child(2) {
+    opacity: 0;
+  }
+  .tabs .trigger.expanded .trigger-icon > span:nth-child(3) {
+    top: calc(50% + 1px);
+    transform: rotate(-45deg);
+  }
+}
+@media screen and (min-width: 1000px) {
+  .tabs {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .tabs > li > a {
+    border-bottom: 1px solid rgba(13, 119, 181, 0.3);
+  }
+  .tabs > li.is-active > a::after {
+    height: 6px;
+    right: 0;
+    left: 0;
+  }
+  .tabs .trigger {
+    display: none;
+  }
+}

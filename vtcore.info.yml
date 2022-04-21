@@ -1,0 +1,57 @@
+name: Virdini Minimalist Core
+type: theme
+base theme: false
+hidden: true
+description: Base theme for minimalist themes.
+package: Virdini
+
+core_version_requirement: ^9
+version: '9.0.0'
+
+libraries:
+  - vtcore/global-styling
+
+libraries-override:
+  system/base:
+    css:
+      component:
+        # Disable system CSS for mesages, moved to vtcore/messages
+        css/components/system-status-counter.css: false
+        css/components/system-status-report-counters.css: false
+        css/components/system-status-report-general-info.css: false
+        # Disable system CSS for fieldgroup/details
+        css/components/fieldgroup.module.css: false
+        css/components/details.module.css: false
+        # Disable system CSS for autocomplete
+        css/components/ajax-progress.module.css: false
+        css/components/autocomplete-loading.module.css: false
+  core/drupal.dropbutton:
+    css:
+      component:
+        misc/dropbutton/dropbutton.css: css/components/dropbutton.css
+  core/drupal.vertical-tabs:
+    css:
+      component:
+        misc/vertical-tabs.css: css/components/vertical-tabs.css
+
+libraries-extend:
+  core/drupal.message:
+    - vtcore/messages
+  core/drupal.tabledrag:
+    - vtcore/messages
+  file/drupal.file:
+    - vtcore/messages
+  core/drupal.ajax:
+    - vtcore/ajax.progress
+  paragraphs/drupal.paragraphs.widget:
+    - vtcore/paragraphs.widget.fix
+
+regions:
+  header: 'Header'
+  pre_content: 'Pre-content'
+  breadcrumb: 'Breadcrumb'
+  highlighted: 'Highlighted'
+  content: 'Content'
+  footer: 'Footer'
+
+# https://www.drupal.org/docs/theming-drupal/defining-a-theme-with-an-infoyml-file
