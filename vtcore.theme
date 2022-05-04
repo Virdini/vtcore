@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Implements hook_preprocess_HOOK() for html templates.
  */
@@ -93,14 +95,22 @@ function vtcore_preprocess_form(&$variables) {
 /**
  * Implements hook_form_BASE_FORM_ID_alter() for \Drupal\node\NodeForm.
  */
-function vtcore_form_node_form_alter(&$form) {
+function vtcore_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  $form['#attached']['library'][] = 'vtcore/form.node';
+
   if (isset($form['meta']['changed'])) {
     $form['meta']['changed']['#wrapper_attributes']['class'][] = 'container-inline';
+    $entity = $form_state->getFormObject()->getEntity();
+
+    // Change last saved date format
+    if (!$entity->isNew()) {
+      $form['meta']['changed']['#markup'] = \Drupal::service('date.formatter')->format($entity->getChangedTime(), 'medium');
+    }
   }
+
   if (isset($form['meta']['author'])) {
     $form['meta']['author']['#wrapper_attributes']['class'][] = 'container-inline';
   }
-  $form['#attached']['library'][] = 'vtcore/form.node';
 }
 
 /**
