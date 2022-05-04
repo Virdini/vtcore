@@ -1,0 +1,12 @@
+.action-links {
+  margin: 1em 0;
+  padding: 0;
+  list-style: none;
+}
+.action-links li {
+  display: inline-block;
+  margin: 0 0.3em;
+}
+.action-links li:first-child {
+  margin-left: 0;
+}

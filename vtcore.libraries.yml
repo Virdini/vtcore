@@ -39,6 +39,7 @@ form:
     component:
       css/components/form.css: {}
   dependencies:
+    - vtcore/action-links
     - vtcore/button
     - vtcore/messages
 
@@ -46,6 +47,11 @@ form.node:
   css:
     component:
       css/components/form.node.css: {}
+
+action-links:
+  css:
+    component:
+      css/components/action-links.css: {}
 
 button:
   css:
