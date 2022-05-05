@@ -63,10 +63,17 @@ function vtcore_theme_suggestions_html_alter(array &$suggestions, array $variabl
  * Implements hook_theme_suggestions_HOOK_alter() for page templates.
  */
 function vtcore_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-  switch (\Drupal::routeMatch()->getRouteName()) {
+  $route = \Drupal::routeMatch();
+
+  switch ($route->getRouteName()) {
     case 'vamp.entity.node.canonical':
     case 'entity.node.canonical':
       $suggestions[] = $variables['theme_hook_original'] .'__node__canonical';
+
+      // Add template suggestions for node bundles
+      if ($entity = $route->getParameter('node')) {
+        $suggestions[] = $variables['theme_hook_original'] .'__node__canonical__' . $entity->bundle();
+      }
       break;
 
     case 'vamp.entity.user.canonical':
