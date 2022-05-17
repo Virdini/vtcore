@@ -20,6 +20,9 @@
   .vbase-field-widget-grid > .fieldset-wrapper {
     grid-template-columns: 1fr 1fr;
   }
+  .vbase-field-widget-grid .vbase-field-youtube-widget-title {
+    grid-column: 1/-1;
+  }
   .vbase-field-widget-grid .js-form-type-checkbox {
     grid-row: 1;
     grid-column: 2;
@@ -37,5 +40,8 @@
 @media screen and (min-width: 760px) {
   .vbase-field-widget-grid > .fieldset-wrapper {
     grid-template-columns: 200px 100px 100px auto;
+  }
+  .vbase-field-widget-grid .vbase-field-youtube-widget-title {
+    grid-column: 1/-2;
   }
 }
