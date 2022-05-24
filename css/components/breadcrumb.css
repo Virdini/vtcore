@@ -9,7 +9,7 @@
   padding: 0;
 }
 .crumb li::after {
-  content: ' >  ';
+  content: ' > ';
 }
 .crumb li:last-child::after {
   content: none;
