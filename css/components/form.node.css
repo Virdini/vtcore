@@ -22,20 +22,21 @@ div.vbase-field-widget-grid,
   .vbase-field-widget-grid > .fieldset-wrapper {
     grid-template-columns: 1fr 1fr;
   }
-  .vbase-field-widget-grid .vbase-field-youtube-widget-title {
+  .vbase-field-geocoordinates-widget-label,
+  .vbase-field-youtube-widget-title {
     grid-column: 1/-1;
   }
-  .vbase-field-widget-grid .js-form-type-checkbox {
+  .vbase-field-youtube-widget-grid .js-form-type-checkbox {
     grid-row: 1;
     grid-column: 2;
   }
 }
 @media screen and (min-width: 640px) {
-  div.vbase-field-widget-grid,
-  .vbase-field-widget-grid > .fieldset-wrapper {
+  div.vbase-field-youtube-widget-grid,
+  .vbase-field-youtube-widget-grid > .fieldset-wrapper {
     grid-template-columns: 2fr 1fr 1fr;
   }
-  .vbase-field-widget-grid .js-form-type-checkbox {
+  .vbase-field-youtube-widget-grid .js-form-type-checkbox {
     grid-row: auto;
     grid-column: auto;
   }
@@ -43,9 +44,22 @@ div.vbase-field-widget-grid,
 @media screen and (min-width: 760px) {
   div.vbase-field-widget-grid,
   .vbase-field-widget-grid > .fieldset-wrapper {
-    grid-template-columns: 200px 100px 100px auto;
+    grid-template-columns: 1fr 1fr 1fr;
   }
-  .vbase-field-widget-grid .vbase-field-youtube-widget-title {
+  div.vbase-field-youtube-widget-grid,
+  .vbase-field-youtube-widget-grid > .fieldset-wrapper {
+    grid-template-columns: 200px 100px 100px 1fr;
+  }
+  .vbase-field-youtube-widget-title {
     grid-column: 1/-2;
+  }
+  .vbase-field-geocoordinates-widget-label {
+    grid-column: 3;
+  }
+}
+@media screen and (min-width: 1000px) {
+  div.vbase-field-geocoordinates-widget-grid,
+  .vbase-field-geocoordinates-widget-grid > .fieldset-wrapper {
+    grid-template-columns: 160px 160px 1fr;
   }
 }
