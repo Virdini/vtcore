@@ -14,7 +14,7 @@
           {% else %}
             <span itemprop="name">{{ item.text }}</span>
           {% endif %}
-          <meta itemprop="position" content="{{ key + 1 }}" />
+          <div class="visually-hidden" itemprop="position">{{ key + 1 }}</div>
         {% endapply %}</li>
       {% endfor %}
     </ol>
